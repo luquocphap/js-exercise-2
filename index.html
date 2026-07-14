@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Phần đầu trang -->
+    <header class="site-header">
+        <div class="header-content">
+            <h1>Bài tập JavaScript</h1>
+        </div>
+    </header>
+
+    <!-- Thanh điều hướng tab -->
+    <nav class="tab-bar" aria-label="Các tab bài tập">
+        <button id="tabStudent" class="tab-button active" type="button">Tuyển Sinh</button>
+        <button id="tabElectricity" class="tab-button" type="button">Tiền Điện</button>
+        <button id="tabTax" class="tab-button" type="button">Thuế</button>
+        <button id="tabCable" class="tab-button" type="button">Tiền Cáp</button>
+    </nav>
+
+    <!-- Nội dung chính -->
+    <main class="page-shell">
+        <!-- Bài 1: Kết quả tuyển sinh -->
+        <section id="exerciseStudent" class="exercise-card">
+            <div class="card-heading">
+                <span class="card-badge">Bài 01</span>
+                <h2>Kết Quả Tuyển Sinh</h2>
+                <p>Tính tổng điểm cùng điểm ưu tiên và xác định thí sinh đậu hay rớt.</p>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="studentName">Tên thí sinh</label>
+                    <input id="studentName" type="text" placeholder="Ví dụ: Minh Anh">
+                </div>
+
+                <div class="form-group">
+                    <label for="benchmarkScore">Điểm chuẩn</label>
+                    <input id="benchmarkScore" type="number" placeholder="Ví dụ: 21">
+                </div>
+
+                <div class="form-group">
+                    <label for="subjectOne">Điểm môn 1</label>
+                    <input id="subjectOne" type="number" placeholder="0 - 10">
+                </div>
+
+                <div class="form-group">
+                    <label for="subjectTwo">Điểm môn 2</label>
+                    <input id="subjectTwo" type="number" placeholder="0 - 10">
+                </div>
+
+                <div class="form-group">
+                    <label for="subjectThree">Điểm môn 3</label>
+                    <input id="subjectThree" type="number" placeholder="0 - 10">
+                </div>
+
+                <div class="form-group">
+                    <label for="areaSelect">Khu vực ưu tiên</label>
+                    <select id="areaSelect">
+                        <option value="0">Không ưu tiên</option>
+                        <option value="2">Khu vực A - 2 điểm</option>
+                        <option value="1">Khu vực B - 1 điểm</option>
+                        <option value="0.5">Khu vực C - 0.5 điểm</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="groupSelect">Đối tượng ưu tiên</label>
+                    <select id="groupSelect">
+                        <option value="0">Không ưu tiên</option>
+                        <option value="2.5">Đối tượng 1 - 2.5 điểm</option>
+                        <option value="1.5">Đối tượng 2 - 1.5 điểm</option>
+                        <option value="1">Đối tượng 3 - 1 điểm</option>
+                    </select>
+                </div>
+            </div>
+
+            <button id="studentButton" class="primary-button" type="button">Tính Kết Quả</button>
+
+            <p id="studentError" class="message error-message"></p>
+            <div id="studentResult" class="result-box"></div>
+        </section>
+
+        <!-- Bài 2: Tính tiền điện -->
+        <section id="exerciseElectricity" class="exercise-card hidden">
+            <div class="card-heading">
+                <span class="card-badge">Bài 02</span>
+                <h2>Tính Tiền Điện</h2>
+                <p>Tính hóa đơn tiền điện dựa trên số kWh sử dụng theo từng mức giá.</p>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="electricCustomerName">Tên khách hàng</label>
+                    <input id="electricCustomerName" type="text" placeholder="Ví dụ: Gia Bảo">
+                </div>
+
+                <div class="form-group">
+                    <label for="electricKw">Số điện sử dụng (kWh)</label>
+                    <input id="electricKw" type="number" placeholder="Ví dụ: 145">
+                </div>
+            </div>
+
+            <button id="electricButton" class="primary-button" type="button">Tính Tiền Điện</button>
+
+            <p id="electricError" class="message error-message"></p>
+            <div id="electricResult" class="result-box"></div>
+        </section>
+
+        <!-- Bài 3: Tính thuế thu nhập -->
+        <section id="exerciseTax" class="exercise-card hidden">
+            <div class="card-heading">
+                <span class="card-badge">Bài 03</span>
+                <h2>Tính Thuế Thu Nhập</h2>
+                <p>Tính thu nhập chịu thuế và thuế thu nhập cá nhân theo biểu thuế lũy tiến.</p>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="taxFullName">Họ và tên</label>
+                    <input id="taxFullName" type="text" placeholder="Ví dụ: Nguyễn Văn A">
+                </div>
+
+                <div class="form-group">
+                    <label for="annualIncome">Tổng thu nhập năm (VND)</label>
+                    <input id="annualIncome" type="number" placeholder="Ví dụ: 180000000">
+                </div>
+
+                <div class="form-group">
+                    <label for="dependents">Số người phụ thuộc</label>
+                    <input id="dependents" type="number" placeholder="Ví dụ: 2">
+                </div>
+            </div>
+
+            <button id="taxButton" class="primary-button" type="button">Tính Thuế</button>
+
+            <p id="taxError" class="message error-message"></p>
+            <div id="taxResult" class="result-box"></div>
+        </section>
+
+        <!-- Bài 4: Tính tiền cáp -->
+        <section id="exerciseCable" class="exercise-card hidden">
+            <div class="card-heading">
+                <span class="card-badge">Bài 04</span>
+                <h2>Tính Tiền Cáp</h2>
+                <p>Tính hóa đơn dịch vụ cáp cho khách hàng nhà dân hoặc doanh nghiệp.</p>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="cableCustomerId">Mã khách hàng</label>
+                    <input id="cableCustomerId" type="text" placeholder="Ví dụ: KH1024">
+                </div>
+
+                <div class="form-group">
+                    <label for="cableCustomerType">Loại khách hàng</label>
+                    <select id="cableCustomerType">
+                        <option value="residential">Nhà dân</option>
+                        <option value="business">Doanh nghiệp</option>
+                    </select>
+                </div>
+
+                <div id="connectionGroup" class="form-group hidden">
+                    <label for="numberOfConnections">Số kết nối</label>
+                    <input id="numberOfConnections" type="number" placeholder="Chỉ dành cho doanh nghiệp">
+                </div>
+
+                <div class="form-group">
+                    <label for="premiumChannels">Số kênh cao cấp</label>
+                    <input id="premiumChannels" type="number" placeholder="Ví dụ: 3">
+                </div>
+            </div>
+
+            <button id="cableButton" class="primary-button" type="button">Tính Tiền Cáp</button>
+
+            <p id="cableError" class="message error-message"></p>
+            <div id="cableResult" class="result-box"></div>
+        </section>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
